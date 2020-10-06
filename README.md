@@ -1,8 +1,7 @@
 # Logitech Gaming Mouse Fix
 This is a repo created to help fix an issue prevalent in Logitech Gaming Mice. I had some free time, so I thought I'd solve it. I also thought it would be good to learn a new language (lua) and solve this issue to the best that my ability and free time allows. Programming is my passion (if you can't already tell by the fact that I'm doing this).
 
-Note: Need to add mouse state tracking to properly fix issues.
-SubNote: Need to test how to do state tracking without losing inputs.
+Note: Setting the delay too high can cause missed mouse inputs. A delay under 50ms is recommended for this program. 10-20ms is recommended in general.
 
 ## I. Why This Fix?
 Most people that I've seen opt for a hardware fix, but replacing the switches has a few issues:
@@ -87,6 +86,7 @@ Next, choose your lua script and make sure there is an entry for <i>each button<
 * button_press_args
 * button_release_tbl
 * button_release_args
+* button_state_pressed
 
 and make sure to update:
 * num_mouse_buttons
@@ -152,4 +152,4 @@ Example images of this can be seen in the folder /G502_Mouse_Fix_Project/Persona
 * This is probably able to be done through a macro. If not, I may spend some time and implement it later.
 
 # Epilogue
-Honestly, this is the largest LUA script I've seen for the G502. Need to keep track of mouse button state to fix the delay properly.
+Honestly, this is the largest LUA script I've seen for the G502.
