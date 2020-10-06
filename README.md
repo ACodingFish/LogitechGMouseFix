@@ -38,6 +38,8 @@ Why This Issue Occurs:  https://www.youtube.com/watch?v=v5BhECVlKJA (This Man is
 ## I. Before Starting
 If you have a mouse that is not the G502, don't worry. It can be done, it just will take a little more work in figuring out which button is which. I will get to that later.
 
+I recommend looking here as a good starting point: /G502_Mouse_Fix_Project/Personal_Setup_Macros/
+
 Be wary of thise line, as it causes performance issues:
 >--EnablePrimaryMouseButtonEvents(true);         -- Enable this if you need to edit left mouse button
 
@@ -138,4 +140,4 @@ Example images of this can be seen in the folder /G502_Mouse_Fix_Project/Persona
 * This is probably able to be done through a macro. If not, I may spend some time and implement it later.
 
 # Epilogue
-Think Logitech would offer me a job after this?
+Think Logitech would offer me a job after this? I could sure use it. :)
