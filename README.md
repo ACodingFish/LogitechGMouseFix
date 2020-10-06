@@ -34,6 +34,8 @@ Logitech API: https://douile.github.io/logitech-toggle-keys/APIDocs.pdf
 
 Why This Issue Occurs:  https://www.youtube.com/watch?v=v5BhECVlKJA (This Man is a LEGEND)
 
+Loading a LUA Script in G HUB: https://www.reddit.com/r/LogitechG/comments/aud8p6/lua_scripts_are_in_g_hub_but_how_do_they_work/
+
 # The Fix
 ## I. Before Starting
 If you have a mouse that is not the G502, don't worry. It can be done, it just will take a little more work in figuring out which button is which. I will get to that later.
