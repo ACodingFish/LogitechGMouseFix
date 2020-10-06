@@ -1,5 +1,5 @@
 # Logitech Gaming Mouse Fix
-This is a repo created to help fix an issue prevalent in Logitech Gaming Mice. I had some free time, so I thought I'd solve it. I am an electrical and computer engineering graduate student at Tennesee Tech University who will be graduating soon and thought it would be good to learn a new language (lua) and solve this issue to the best that my ability and free time allows. Programming is my passion (if you can't already tell by the fact that I'm doing this).
+This is a repo created to help fix an issue prevalent in Logitech Gaming Mice. I had some free time, so I thought I'd solve it. I also thought it would be good to learn a new language (lua) and solve this issue to the best that my ability and free time allows. Programming is my passion (if you can't already tell by the fact that I'm doing this).
 
 ## I. Why This Fix?
 Most people that I've seen opt for a hardware fix, but replacing the switches has a few issues:
