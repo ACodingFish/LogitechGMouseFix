@@ -2,6 +2,7 @@
 This is a repo created to help fix an issue prevalent in Logitech Gaming Mice. I had some free time, so I thought I'd solve it. I also thought it would be good to learn a new language (lua) and solve this issue to the best that my ability and free time allows. Programming is my passion (if you can't already tell by the fact that I'm doing this).
 
 Note: Need to add mouse state tracking to properly fix issues.
+SubNote: Need to test how to do state tracking without losing inputs.
 
 ## I. Why This Fix?
 Most people that I've seen opt for a hardware fix, but replacing the switches has a few issues:
