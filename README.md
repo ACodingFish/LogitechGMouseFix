@@ -11,7 +11,7 @@ The advantages of this fix:
 * It does not require opening the mouse
 * It does not void the warranty
 * It is a feature within G HUB
-* If the issue still occurs or starts occuring again during age, the delay length can be increased to compensate
+* If the issue still occurs or starts occuring again due to age, the delay length can be increased to compensate
 * Delays under 50 ms should be almost un-noticeable
 
 <i>But.. Doesn't a software fix affect the response times?</i> Technically yes, but realistically no. I tested this by altering the report rate in G HUB for 1000 Hz (a 1ms delay) to 500 Hz (a 2ms delay) and saw that this fixed my issue. Standard debouncing (delay) is usually somewhere between 10-20 ms for a button, and does not occur until AFTER the button has been pressed. <b>This means that the button press happens instantaneously, but then waits for a short delay time to be pressed again.</b>
