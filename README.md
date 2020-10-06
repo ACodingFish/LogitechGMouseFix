@@ -25,7 +25,7 @@ I have a Logitech G502 that started double-clicking after 3-4 years. I looked up
 For double-clicking and click/drag issues on the G502 (and by extension, most Logitech gaming mice), a macro can be used to fix this issue. Macros for the main mouse buttons (LMB, RMB, and MMB) can be seen in /G502_Mouse_Fix_Project/Personal_Setup_Macros/ in images 03, 04, and 05 respectively.
 
 ### B. Other Buttons
-So, great.. The macro fix works for those three buttons. What if the other buttons are double-clicking or can't be dragged? No worries! I have taken the time to develop a LUA script to solve this issue for the remaining buttons. Upside? it can fix the issue with a little bit of work. Downside? It's not quite as straight-forward. My goal is to make this fix as accessible as possible and to do most of the heavy-lifting as far as the environment and tools.
+So, great.. The macro fix works for those three buttons. What if the other buttons are double-clicking? No worries! I have taken the time to develop a LUA script to solve this issue for the remaining buttons. Upside? it can fix the issue with a little bit of work. Downside? It's not quite as straight-forward. My goal is to make this fix as accessible as possible and to do most of the heavy-lifting as far as the environment and tools.
 
 ## III. Resources
 G HUB Manual: https://www.logitech.com/assets/65550/ghub.pdf
@@ -149,4 +149,4 @@ Example images of this can be seen in the folder /G502_Mouse_Fix_Project/Persona
 * This is probably able to be done through a macro. If not, I may spend some time and implement it later.
 
 # Epilogue
-Honestly, this is the largest LUA script I've seen for the G502.
+Honestly, this is the largest LUA script I've seen for the G502. Need to keep track of mouse button state to fix the delay properly.
