@@ -108,26 +108,27 @@ local button_release_args =
 function OnEvent(event, arg)
 	
 	if (event == "MOUSE_BUTTON_PRESSED")  and (arg <= num_mouse_buttons) then
+        button_state_pressed[arg] = true;
 		if (GetRunningTime() -	last_press_timestamp[arg]) >= press_delay_ms[arg] then
         			--OutputLogMessage("Event: "..event.." Button: "..mouse_buttons[arg].."\n");
-            delay_press_check(arg);
-			local press_func = button_press_tbl[arg]
-			local press_arg = button_press_args[arg]
-			if (press_func)  then
-				if (press_arg) then
-					press_func(press_arg)
-				else
-					press_func()
-				end
-			end
-			last_press_timestamp[arg] = GetRunningTime();
+            if delay_press_check(arg) then
+                local press_func = button_press_tbl[arg]
+                local press_arg = button_press_args[arg]
+                if (press_func)  then
+                    if (press_arg) then
+                        press_func(press_arg)
+                    else
+                        press_func()
+                    end
+                end
+                last_press_timestamp[arg] = GetRunningTime();
+                
+            end
 		end
 	elseif (event == "MOUSE_BUTTON_RELEASED")  and (arg <= num_mouse_buttons) then
-		if ((GetRunningTime() -	last_release_timestamp[arg]) >= release_delay_ms[arg]) 
-		--and ((GetRunningTime() -	last_press_timestamp[arg]) >= press_delay_ms[arg])  	-- this should fix the drag break issue. Uncomment if needed and other delays do not fix issue after being increased. A delay that is too high for press delay will cause the button to never release if this is uncommented
-		then															-- Holding the button and releasing it should fix this issue.
+        button_state_pressed[arg] = false;
+		if delay_release_check(arg) then			-- Holding the button and releasing it should fix any locking issues.
         			--OutputLogMessage("Event: "..event.." Button: "..mouse_buttons[arg].."\n");
-            delay_release_check(arg);
 			local release_func = button_release_tbl[arg]
 			local release_arg = button_release_args[arg]
 			if (release_func)  then
@@ -145,13 +146,34 @@ end
 function delay_press_check(arg)
     last_release = (GetRunningTime() -	last_release_timestamp[arg])
     if (last_release < release_delay_ms[arg]) then
-        Sleep(release_delay_ms[arg] - last_release);
+        return false
+    else
+        return true
     end
 end
 
 function delay_release_check(arg)
     last_press = (GetRunningTime() - last_press_timestamp[arg])
+    last_press_remaining = 0
     if (last_press < press_delay_ms[arg]) then
-        Sleep(press_delay_ms[arg] - last_press);
+        last_press_remaining = press_delay_ms[arg] - last_press
     end
+    
+    last_release = (GetRunningTime() -	last_release_timestamp[arg])
+    last_release_remaining = 0
+    if (last_release < release_delay_ms[arg]) then
+        last_release_remaining = release_delay_ms[arg] - last_press
+    end
+    
+    delay_remaining = math.max(last_press_remaining, last_release_remaining);
+    if (delay_remaining > 0) then
+        Sleep(delay_remaining);
+    end
+    
+    if (button_state_pressed[arg] == false) then
+        return true
+    else
+        return false
+    end
+
 end
