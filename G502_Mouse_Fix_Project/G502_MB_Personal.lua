@@ -33,7 +33,7 @@ press_delay_ms = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}			-- Length that s
 release_delay_ms =  {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}			-- Length that should be delayed for each button in ms after a button release
 last_press_timestamp = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}		-- TImestamp of last button press
 last_release_timestamp = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}		-- Timestamp of last button release
-button_state_pressed = {false,false,false,false,false,false,false,false,false,false,false}
+button_state_pressed = {false,false,false,false,false,false,false,false,false,false,false} -- Button States
 
 -- Press function table
 local button_press_tbl = 
