@@ -89,6 +89,8 @@ and make sure to update:
 This is something that you may have to do if you want a shorter delay time or if this delay is not long enough to fix your issue. The delay is stored in two arrays, press_delay_ms and release_delay_ms. The delay stored in these is indexed (ordered) by button and is measured in milliseconds. A value between 10-20ms is recommended, but 2ms is enough to fix my issue right now. As a mouse ages, it will need to have a longer delay, but you can change this value in the script. Again, a value under 50ms should be relatively unnoticeable to most people.
 
 ## VI. Configuring Mouse Button Actions
+Remember this as you configure your buttons: Any button that you assign in this program must be unassigned in G HUB, otherwise there could be conflicting actions that the mouse may try to execute.
+
 We are going to start by using the script:
 >/G502_Mouse_Fix_Project/G502_MB_Personal.lua
 This Script assumes:
@@ -132,6 +134,7 @@ If a button is not used or is used, but is assigned in G HUB, do the following:
 Again, if a macro is set and assigned in G Hub, do not set it here. Instead, set all values for that button number equal to nil (as seen by buttons 1, 2, and 3 for my personal example for the G502)
 
 Macros may take some thinking to implement, rather than being as simple as a key press. I recommend that if a macro doesn't work, try reaching out to the community to see what you might need to do. In general, here is the procedure that I used:
+
 * Create a No-Repeat Macro in GHUB
 * Find the button number that you want in button_press_tbl and set it equal to PlayMacro
 * Find the button number that you want in button_press_args and set it equal to the macro that you want with quotes (") around it. Ex. "DPI_Down"
