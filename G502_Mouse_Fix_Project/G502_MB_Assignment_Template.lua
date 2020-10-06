@@ -110,7 +110,7 @@ function OnEvent(event, arg)
 	if (event == "MOUSE_BUTTON_PRESSED")  and (arg <= num_mouse_buttons) then
 		if (GetRunningTime() -	last_press_timestamp[arg]) >= press_delay_ms[arg] then
         			--OutputLogMessage("Event: "..event.." Button: "..mouse_buttons[arg].."\n");
-
+            delay_press_check(arg);
 			local press_func = button_press_tbl[arg]
 			local press_arg = button_press_args[arg]
 			if (press_func)  then
@@ -127,6 +127,7 @@ function OnEvent(event, arg)
 		--and ((GetRunningTime() -	last_press_timestamp[arg]) >= press_delay_ms[arg])  	-- this should fix the drag break issue. Uncomment if needed and other delays do not fix issue after being increased. A delay that is too high for press delay will cause the button to never release if this is uncommented
 		then															-- Holding the button and releasing it should fix this issue.
         			--OutputLogMessage("Event: "..event.." Button: "..mouse_buttons[arg].."\n");
+            delay_release_check(arg);
 			local release_func = button_release_tbl[arg]
 			local release_arg = button_release_args[arg]
 			if (release_func)  then
@@ -139,4 +140,18 @@ function OnEvent(event, arg)
 			last_release_timestamp[arg] = GetRunningTime();
 		end
 	end
+end
+
+function delay_press_check(arg)
+    last_release = (GetRunningTime() -	last_release_timestamp[arg])
+    if (last_release < release_delay_ms[arg]) then
+        Sleep(release_delay_ms[arg] - last_release);
+    end
+end
+
+function delay_release_check(arg)
+    last_press = (GetRunningTime() - last_press_timestamp[arg])
+    if (last_press < press_delay_ms[arg]) then
+        Sleep(press_delay_ms[arg] - last_press);
+    end
 end
