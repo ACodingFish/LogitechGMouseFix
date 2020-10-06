@@ -102,8 +102,12 @@ If a macro is set and assigned in G Hub, do not set it here. Instead, set all va
 * Repeat for "button_release_tbl" and "button_release_args"
 ### B. For Those Who Don't Code
 Each button can be attached to a macro in G HUB, a keyboard key, or a mouse click. I have tried to comment my code thoroughly to make it as easy as possible to use for even those who don't code. That being said, <i>be careful</i> and pay close attention. Let's go over the different types of things we might want to implement.
-#### i. Empty/Unused Buttons
-* Set unused buttons as nil
+#### i. Empty/Unused Buttons OR If a Button is Assigned in G HUB
+If a button is not used or is used, but is assigned in G HUB, do the following:
+* Find the button number that you want in button_press_tbl and set it equal to nil
+* Find the button number that you want in button_press_args and set it equal to nil
+* Find the button number that you want in button_release_tbl and set it equal to nil
+* Find the button number that you want in button_release_args and set it equal to nil
 #### ii. Click (with hold/drag - What most people want)
 * Find the button number that you want in button_press_tbl and set it equal to PressMouseButton
 * Find the button number that you want in button_press_args and set it equal to the mouse button you want (LMB - 1, MMB - 2, RMB - 3)
