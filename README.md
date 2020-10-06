@@ -149,4 +149,4 @@ Example images of this can be seen in the folder /G502_Mouse_Fix_Project/Persona
 * This is probably able to be done through a macro. If not, I may spend some time and implement it later.
 
 # Epilogue
-Think Logitech would offer me a job after this? I could sure use it. :)
+Honestly, this is the largest LUA script I've seen for the G502.
