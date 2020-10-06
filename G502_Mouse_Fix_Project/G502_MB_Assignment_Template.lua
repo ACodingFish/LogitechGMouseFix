@@ -1,7 +1,7 @@
 --Author Notes
 -- I assume no responsibility for any damages to your devices or any bugs. 
 -- That being said, I've tried to write this code in a way that it should avoid issues and could be applied to other mice with some effort
--- A delay between 10-20 ms is recommended, but a delay in a range of 2-70 ms could potentially fix the issue and should be unnoticeable to most users.
+-- A delay between 10-20 ms is recommended, but a delay in a range of 2-50 ms could potentially fix the issue and should be unnoticeable to most users.
 -- If this does not work, increase the delay for the specified button.
 -- I recommend using macros for the primary mouse buttons (LMB,RMB,MMB) as seen below:
 -- https://www.reddit.com/r/G502MasterRace/comments/j47bxb/logitech_gaming_g502_mouse_double_clickdrag_issue/
