@@ -9,16 +9,17 @@ Most people that I've seen opt for a hardware fix, but replacing the switches ha
 * It requires opening the mouse and soldering (something that most people aren't comfortable with on such a high-priced device)
 * It voids the warranty
 
-The advantages of this fix:
+<i>The advantages of this fix:</i>
 * It does not require opening the mouse
 * It does not void the warranty
 * It is a feature within G HUB
 * If the issue still occurs or starts occuring again due to age, the delay length can be increased to compensate
 * Delays under 50 ms should be almost un-noticeable
+* It uses non-blocking code for events (meaning that inputs from other mouse buttons should not be blocked during the delay)
 
-<i>But.. Doesn't a software fix affect the response times?</i> Technically yes, but realistically no. I tested this by altering the report rate in G HUB for 1000 Hz (a 1ms delay) to 500 Hz (a 2ms delay) and saw that this fixed my issue. Standard debouncing (delay) is usually somewhere between 10-20 ms for a button, and does not occur until AFTER the button has been pressed. <b>This means that the button press happens instantaneously, but then waits for a short delay time to be pressed again.</b>
+<i>But.. Doesn't a software fix affect the response times?</i> Technically yes, but realistically no. I tested this by altering the report rate in G HUB for 1000 Hz (a 1ms delay) to 500 Hz (a 2ms delay) and saw that this fixed my issue. Standard debouncing (delay) is usually somewhere between 10-20 ms for a button, and does not occur until AFTER the button has been pressed. <b>This means that the button press happens instantaneously, but then waits for a short delay time to be pressed again so long as the delay is configured appropriately.</b>
 
-In a test scenario, I attempted to double-click as fast as I could to get some metrics on a reasonable debounce time that would go unnoticed. For the G502, I could not click faster than a delay of 75ms, meaning that a total delay of about 70ms should go unnoticed for most people. A reasonable time for the fastest possible double-click might be to assume 20 clicks/second, meaning a 50ms delay. Logitech's current code is limited by the report rate, which assumes 1000 clicks/second at 1000 Hz, which is pretty rediculous. My code on the other hand assumes a 20ms (50 clicks/second in the worst-case) delay, using 10ms for the down press and 10ms for the release (wich can be overlapping), between successive clicks and is configurable.
+In a test scenario, I attempted to double-click as fast as I could to get some metrics on a reasonable debounce time that would go unnoticed. For the G502, I could not click faster than a delay of 75ms, meaning that a total delay of about 70ms should go unnoticed for most people. A reasonable time for the fastest possible double-click might be to assume 20 clicks/second, meaning a 50ms delay. Logitech's current code is limited by the report rate, which assumes 1000 clicks/second at 1000 Hz, which is pretty rediculous. My code on the other hand assumes a 20ms (50 clicks/second) delay, using 10ms for the down press and 10ms for the release (wich can be overlapping), between successive clicks and is configurable.
 
 ## II. Background
 I have a Logitech G502 that started double-clicking after 3-4 years. I looked up the current model of G502 (and several other gaming mice from different brands) and saw that they all had a similar issue. In under a year, most gaming mice would start having an issue with double-clicking. I have described this here: https://www.reddit.com/r/LogitechG/comments/j5uecz/software_fix_for_double_clicking_logitech_mice/
@@ -39,6 +40,8 @@ Why This Issue Occurs:  https://www.youtube.com/watch?v=v5BhECVlKJA (This Man is
 Loading a LUA Script in G HUB: https://www.reddit.com/r/LogitechG/comments/aud8p6/lua_scripts_are_in_g_hub_but_how_do_they_work/
 
 # The Fix
+This fix, along with the macro fix works off of the idea of filtering. When using any input on a device, filtering (whether in software or hardware) is a standard practice. Software filtering for an input (such as a switch) is generally called debouncing. Debouncing is common in most devices to prevent duplicate inputs by reducing the amount of electrical jitter that is on the line. In some ways, it could be thought of as the software version of a capacitor, which would be used for hardware filtering.
+
 ## I. Before Starting
 If you have a mouse that is not the G502, don't worry. It can be done, it just will take a little more work in figuring out which button is which. I will get to that later.
 
