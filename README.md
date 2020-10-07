@@ -48,7 +48,8 @@ If you have a mouse that is not the G502, don't worry. It can be done, it just w
 I recommend looking here as a good starting point: /G502_Mouse_Fix_Project/Personal_Setup_Macros/
 
 Be wary of thise line, as it causes performance issues:
->--EnablePrimaryMouseButtonEvents(true);         -- Enable this if you need to edit left mouse button
+
+```--EnablePrimaryMouseButtonEvents(true);         -- Enable this if you need to edit left mouse button```
 
 I take no responsibility for any issues that come from following this guide.
 
