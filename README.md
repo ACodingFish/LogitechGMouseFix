@@ -64,9 +64,7 @@ And with that, let's begin!
 * /G502_Mouse_Fix_Project/Console_MB_Named_Output_G502.lua - Outputs mouse button names and numbers for G502 ONLY
 * /G502_Mouse_Fix_Project/G502_MB_Assignment_Template.lua - An example script to kind of demonstrate the code
 * /G502_Mouse_Fix_Project/G502_MB_Personal.lua - This is my personal mouse setup
-* /G502_Mouse_Fix_Project/G502_Complete_Control.lua - I don't recommend using this one but.. go for it I guess. It opts to control every button from the script. <i>Again, remember what I said about performance issues:</i>
-
-```--EnablePrimaryMouseButtonEvents(true);         -- Enable this if you need to edit left mouse button```
+* /G502_Mouse_Fix_Project/G502_Complete_Control.lua - I don't recommend using this one but.. go for it I guess. It opts to control every button from the script. <i>Again, remember what I said about performance issues with ```EnablePrimaryMouseButtonEvents(true)```</i>
 
 ## III. Set Up Macros
 Set up macros for the buttons that allow this. These buttons are:
